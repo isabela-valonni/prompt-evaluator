@@ -1,0 +1,11 @@
+{
+  "name": "prompt-evaluator",
+  "description": "A quiet prompting coach. Scores how you ask, names one thing to sharpen, and remembers your recurring patterns across sessions so the feedback compounds. Works for anyone using AI — not tied to any one domain.",
+  "version": "1.0.0",
+  "author": {
+    "name": "isabela-valonni"
+  },
+  "license": "MIT",
+  "keywords": ["prompting", "feedback", "coach", "memory", "productivity", "claude"],
+  "skills": ["./skills/prompt-evaluator"]
+}

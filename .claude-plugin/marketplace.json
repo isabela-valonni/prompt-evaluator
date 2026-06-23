@@ -1,0 +1,31 @@
+{
+  "name": "prompt-evaluator",
+  "id": "prompt-evaluator",
+  "owner": {
+    "name": "isabela-valonni"
+  },
+  "metadata": {
+    "description": "Quiet prompting feedback that compounds — scores how you ask, names one thing to sharpen, and remembers your patterns across sessions",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "prompt-evaluator",
+      "source": "./",
+      "description": "A quiet prompting coach. After your first prompt each session it scores how you asked, names one thing to sharpen, and keeps a memory file so feedback gets more targeted over time.",
+      "version": "1.0.0",
+      "author": {
+        "name": "isabela-valonni"
+      },
+      "keywords": [
+        "prompting",
+        "feedback",
+        "coach",
+        "memory",
+        "productivity",
+        "claude"
+      ],
+      "category": "workflow"
+    }
+  ]
+}
