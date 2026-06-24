@@ -49,8 +49,11 @@ Why only two? Evaluating every message becomes background nag. Evaluating only a
 Always the same shape:
 
 > **PROMPTING FEEDBACK**
+>
 > **X / 10** — one-line rationale
+>
 > **What worked:** one specific observation
+>
 > **To sharpen:** one concrete suggestion, with an example
 
 One score. One observation. One sharpening. No paragraphs of advice, no theory — just the thing to do differently next time.
@@ -69,18 +72,20 @@ The evaluator is an **always-on behavior**, so it lives in your AI's system inst
 
 ### Option A — Install as a plugin (Cowork / Claude Code)
 
-The cleanest path for Claude users. Run these two commands:
+Fastest install for Cowork / Claude Code users — one command, no copying or pasting:
 
 ```
 /plugin marketplace add isabela-valonni/prompt-evaluator
 /plugin install prompt-evaluator@prompt-evaluator
 ```
 
-The evaluator ships as a skill, so once installed it fires automatically — no pasting, no copy-paste drift, and you get updates by re-running `marketplace add`.
+The evaluator ships as a skill. Once installed, Claude reads the skill's description (which is directive about firing on session start) and triggers the evaluator on your first prompt. Get updates later by re-running `marketplace add`.
+
+*Note:* skill auto-activation depends on Claude's intent matching, and an always-on coach is an unusual trigger pattern. If you ever notice the evaluator not firing, fall back to **Option B** below — `CLAUDE.md` is read at every session start by definition, making it the most reliable trigger for always-on behavior.
 
 ### Option B — Append to CLAUDE.md (Cowork / Claude Code)
 
-Prefer to keep it in your project file instead of a plugin? Append the block to your project's `CLAUDE.md`:
+Most reliable trigger for always-on coaching. Append the evaluator block to your project's `CLAUDE.md`:
 
 ```bash
 echo "" >> CLAUDE.md && curl https://raw.githubusercontent.com/isabela-valonni/prompt-evaluator/main/PROMPT.md >> CLAUDE.md

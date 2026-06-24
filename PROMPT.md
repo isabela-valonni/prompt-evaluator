@@ -32,8 +32,11 @@ evaluation builds on the last one.
 ## What you'll see (one real example)
 
 > **PROMPTING FEEDBACK**
+>
 > **6 / 10** — Goal is clear, context is thin.
+>
 > **What worked:** Named the audience (engineers) and the format (bullets).
+>
 > **To sharpen:** Add *why* it's needed. Try: *"…for the weekly eng sync — they know the tech, so focus on business impact."*
 
 One score. One thing that worked. One thing to fix. Then back to your task.
