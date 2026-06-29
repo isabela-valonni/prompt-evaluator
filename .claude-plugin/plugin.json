@@ -6,6 +6,5 @@
     "name": "isabela-valonni"
   },
   "license": "MIT",
-  "keywords": ["prompting", "feedback", "coach", "memory", "productivity", "claude"],
-  "skills": ["./skills/prompt-evaluator"]
+  "keywords": ["prompting", "feedback", "coach", "memory", "productivity", "claude"]
 }

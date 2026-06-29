@@ -68,44 +68,44 @@ That's the whole compounding mechanism: feedback that *remembers what you alread
 
 ## Install
 
-The evaluator is an **always-on behavior**, so it lives in your AI's system instructions or project memory (not as a one-off prompt).
+There are two ways to use the evaluator: on demand, or auto-firing every session. Pick by how much feedback you want.
 
-### Option A — Install as a plugin (Cowork / Claude Code)
+### Everyday: the `/evaluate` command (Cowork / Claude Code) — recommended
 
-Fastest install for Cowork / Claude Code users — one command, no copying or pasting:
+On-demand scoring you trigger yourself, so it always runs — no waiting on the AI to decide whether to fire. Install the plugin once:
 
 ```
 /plugin marketplace add isabela-valonni/prompt-evaluator
 /plugin install prompt-evaluator@prompt-evaluator
 ```
 
-The evaluator ships as a skill. Once installed, Claude reads the skill's description (which is directive about firing on session start) and triggers the evaluator on your first prompt. Get updates later by re-running `marketplace add`.
+If the marketplace add fails with an SSH host-key error, use the HTTPS URL instead:
 
-*Note:* skill auto-activation depends on Claude's intent matching, and an always-on coach is an unusual trigger pattern. If you ever notice the evaluator not firing, fall back to **Option B** below — `CLAUDE.md` is read at every session start by definition, making it the most reliable trigger for always-on behavior.
-
-### Option B — Append to CLAUDE.md (Cowork / Claude Code)
-
-Most reliable trigger for always-on coaching. Append the evaluator block to your project's `CLAUDE.md`:
-
-```bash
-echo "" >> CLAUDE.md && curl https://raw.githubusercontent.com/isabela-valonni/prompt-evaluator/main/PROMPT.md >> CLAUDE.md
+```
+/plugin marketplace add https://github.com/isabela-valonni/prompt-evaluator.git
 ```
 
-Or for a fresh project:
+Then run `/evaluate` after any prompt (optionally paste a prompt right after the command). This is the reliable path: because you invoke it, there's nothing to misfire.
+
+If you want feedback every session without asking for it, the plugin command isn't the right tool — auto-fire belongs in always-on context, which is read at every session start by definition. Use the always-on block below.
+
+### Opt-in: auto-fire every session (always-on block)
+
+Choose this if you're actively practicing your prompting and want a score on every session's first prompt with no command to remember.
+
+In Cowork / Claude Code, append the clean block to your project's `CLAUDE.md` (run once, so the block isn't duplicated):
 
 ```bash
-curl -o CLAUDE.md https://raw.githubusercontent.com/isabela-valonni/prompt-evaluator/main/PROMPT.md
+echo "" >> CLAUDE.md && curl -s https://raw.githubusercontent.com/isabela-valonni/prompt-evaluator/main/claude-md-block.md >> CLAUDE.md
 ```
 
-### Option C — Paste into your AI's settings (ChatGPT / Gemini / Claude web)
-
-Open **[PROMPT.md](./PROMPT.md)** and copy the block inside the code fence. Then:
+In ChatGPT, Gemini, or Claude web, copy the block inside the code fence in **[PROMPT.md](./PROMPT.md)** and paste it into:
 
 - **Claude (web/desktop)** → Settings → Custom Instructions
 - **ChatGPT** → Personalization → Custom Instructions
 - **Gemini** → Settings → System instructions (or inside a Gem)
 
-Paste, save, done. Your next chat will start with a feedback block.
+**Don't stack auto-fire channels.** If you already have prompting-feedback instructions in a global config, or in another `CLAUDE.md` that also applies, adding this block on top produces two PROMPTING FEEDBACK blocks per session. Pick one source.
 
 ---
 
